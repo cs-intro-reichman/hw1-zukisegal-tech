@@ -7,8 +7,9 @@ public class FVCalc
  		double rate =  Double.parseDouble(args[1]);
  		int years = Integer.parseInt(args[2]);
  		// rate is given as percent (e.g. 10.0 means 10%). use rate/100 in growth formula
- 		double futureValue = principal * Math.pow(1 + rate/100.0, years);
- 		long rounded = Math.round(futureValue);
+		double futureValue = principal * Math.pow(1 + rate/100.0, years);
+		// tests expect the integer part (truncate), not rounded
+		long rounded = (long) futureValue;
 
  		System.out.println("After " + years + " years, $" + principal + " saved at " + rate + "% will yield $" + rounded);
 
