@@ -15,15 +15,11 @@ public class TimeFormat
 		int hours = Integer.parseInt("" + args[0].charAt(0) + args[0].charAt(1));
 		// Does the same with the minutes part of the input.
 		int minutes = Integer.parseInt("" + args[0].charAt(3) + args[0].charAt(4));
-		if (hours<13)
-		{
-			System.out.println(hours+":"+ minutes+ " AM"); 
-		}
-		else
-			{
-			int nighthour= hours-12;
-			System.out.println(nighthour+":"+ minutes+ " PM"); 
-			}
+		String ampm = (hours >= 12) ? "PM" : "AM";
+		int displayHour = (hours > 12) ? hours - 12 : hours;
+		// minutes must be two digits
+		String minuteStr = String.format("%02d", minutes);
+		System.out.println(displayHour + ":" + minuteStr + " " + ampm);
 
 
        
